@@ -1,0 +1,17 @@
+{% extends "network/layout.html"%}
+{% load static %}
+{%block body%}
+<h1>All Posts</h1>
+<form id="compose-form">
+	<label for="text">Hey {{request.user}}!, what's in your mind today? </label>
+	<textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
+	<input type="submit">
+</form>
+<div id="poss"></div>
+{%endblock%}
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+    {{ request.user.id|json_script:"user_id" }}
+   
+
+{% endblock %}
